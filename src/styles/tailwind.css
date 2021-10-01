@@ -3,7 +3,7 @@
 @tailwind base;
 
 * {
-    @apply font-poppins;
+    @apply font-noto;
     @apply antialiased;
     @apply subpixel-antialiased;
 }
