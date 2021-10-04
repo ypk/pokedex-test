@@ -1,9 +1,13 @@
 import AppRoot from "./app-root";
-import NotFound from "./not-found";
 import Layout from "./layout";
+import NotFound from "./not-found";
+import PokeList from "./poke-list";
+import Spinner from "./spinner";
 
 export {
     AppRoot,
+    Layout,
     NotFound,
-    Layout
+    PokeList,
+    Spinner
 };

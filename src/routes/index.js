@@ -4,13 +4,15 @@ import { AppRoot, NotFound } from "../components/index";
 
 const Routes = () => {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={AppRoot}/>
-                <Route path="*" component={NotFound}/>
-            </Switch>
-        </BrowserRouter>
-    ) 
+        <>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={AppRoot} />
+                    <Route path="*" component={NotFound} />
+                </Switch>
+            </BrowserRouter>
+        </>
+    )
 }
 
 export default Routes;
