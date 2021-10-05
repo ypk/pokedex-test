@@ -2,37 +2,37 @@ import { useEffect, useRef, useReducer } from "react";
 
 const useFetch = (apiUrl) => {
 
-	const cache = useRef({});
+    const cache = useRef({});
 
     const initialState = {
-		status: 'idle',
-		error: null,
-		data: [],
-	};
+        status: 'idle',
+        error: null,
+        data: [],
+    };
 
     const [state, dispatch] = useReducer((state, action) => {
-		switch (action.type) {
-			case 'INIT':
-				return {
+        switch (action.type) {
+            case 'INIT':
+                return {
                     ...initialState,
                     status: 'init'
                 };
-			case 'DONE':
-				return {
+            case 'DONE':
+                return {
                     ...initialState,
                     status: 'done',
                     data: action.payload
                 };
-			case 'ERROR':
-				return {
+            case 'ERROR':
+                return {
                     ...initialState,
                     status: 'error',
                     error: action.payload
                 };
-			default:
-				return state;
-		}
-	}, initialState);
+            default:
+                return state;
+        }
+    }, initialState);
 
     useEffect(() => {
         let cancelRequest = false;
@@ -46,12 +46,22 @@ const useFetch = (apiUrl) => {
                 dispatch({ type: 'DONE', payload: results });
             } else {
                 try {
+                    const pokeData = [];
                     const response = await fetch(apiUrl);
                     const data = await response.json();
                     const { results } = data;
-                    cache.current[apiUrl] = results;
+                    results.forEach(async result => {
+                        const statsApiUrl = result.url;
+                        const response = await fetch(statsApiUrl);
+                        const data = await response.json();
+                        const { name, height, weight, abilities, types } = data;
+                        const abilitiesList = abilities.map(a=> a.ability.name)
+                        const typesList = types.map(t=> t.type.name)
+                        pokeData.push({ name, height, weight, abilities: abilitiesList, types: typesList });
+                    });
+                    cache.current[apiUrl] = pokeData;
                     if (cancelRequest) return;
-                    dispatch({ type: 'DONE', payload: results });
+                    dispatch({ type: 'DONE', payload: pokeData });
                 } catch (error) {
                     if (cancelRequest) return;
                     dispatch({ type: 'ERROR', payload: error.message });

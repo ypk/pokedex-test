@@ -11,7 +11,7 @@ ReactDOM.render(
     <HelmetProvider>
       <Helmet>
           <meta charSet="utf-8" />
-          <title>PokeApp</title>
+          <title>PokeDex</title>
       </Helmet>
       <Routes />
     </HelmetProvider>

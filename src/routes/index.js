@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { AppRoot, NotFound } from "../components/index";
+import { Pokedex, NotFound } from "../components/index";
 
 const Routes = () => {
     return (
         <>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={AppRoot} />
+                    <Route exact path="/" component={Pokedex} />
                     <Route path="*" component={NotFound} />
                 </Switch>
             </BrowserRouter>
