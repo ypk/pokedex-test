@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const AvailablePokeCountValues = [20, 50, 100];
+    const AvailablePokeCountValues = [10, 20, 50];
 
     const handleDropdownOpen = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
                 <div className="absolute right-10">
                     <button
                         onClick={handleDropdownOpen}
-                        className={`${isOpen ? 'rounded-t-xl' : 'rounded-xl'} inline-flex justify-center w-full rounded-md border p-4 md:p-2 bg-yellow-300 text-sm leading-5 font-medium focus:outline-none hover:bg-yellow-400 focus:bg-yellow-400 focus:border-yellow-400 transition ease-in-out`}>
+                        className={`rounded-xl inline-flex justify-center w-full rounded-md border p-4 md:p-2 hover:rounded-xl focus:rounded-xl bg-yellow-300 text-sm leading-5 font-medium focus:outline-none hover:bg-yellow-400 focus:bg-yellow-400 focus:border-yellow-400 transition ease-in-out`}>
                         <span className="mx-1 text-md leading-6 font-bold">Dislaying&nbsp;{selectedPokeCountValue}&nbsp;Pokemons</span>
                         <svg className="fill-current w-4 h-6 ml-2 group-focus:text-blue-400 group-hover:text-blue-400" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -34,7 +34,7 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
                         </svg>
                     </button>
                     {isOpen && (
-                        <div className="rounded-b-xl shadow-md relative pin-t pin-l bg-yellow-300">
+                        <div className="rounded-xl shadow-md relative pin-t pin-l bg-yellow-300">
                             <ul className="list-reset">
                                 {
                                     AvailablePokeCountValues.map(value => (
