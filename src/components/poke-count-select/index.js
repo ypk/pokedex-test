@@ -18,7 +18,7 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
 
     return (
         <>
-            <div className="relative pt-4 md:pt-8 bg-gray-100">
+            <div className="relative bg-gray-100">
                 <div className="absolute right-10">
                     <button
                         onClick={handleDropdownOpen}

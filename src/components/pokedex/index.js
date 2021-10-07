@@ -53,6 +53,7 @@ const Pokedex = () => {
         <Layout>
             {loading ? <Spinner color="text-yellow-300" size="6" /> : (
                 <>
+                    <Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />
                     <PokeCountSelect selectedPokeCountValue={selectedPokeCountValue} handlePokeCountValueChange={handlePokeCountValueChange} />
                     <PokeList listItems={pokeData} />
                     <Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />

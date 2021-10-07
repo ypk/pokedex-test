@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PokeList({ listItems }) {
     return (
-        <div className="bg-gray-100 min-h-screen pt-20 py-6 md:pt-24 md:py-12 px-10 ">
+        <div className="bg-gray-100 min-h-screen pt-18 py-6 md:pt-20 md:py-12 px-10 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-x-10 xl-grid-cols-5 gap-y-10 gap-x-6 ">
                 {
                     listItems && listItems.map((listItem, idx) => (
