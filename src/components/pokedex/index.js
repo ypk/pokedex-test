@@ -10,14 +10,13 @@ const Pokedex = () => {
     const [pokeData, setPokeData] = useState([]);
     const [selectedPokeCountValue, setSelectedPokeCountValue] = useState(20);
     const [currentPageUrl, setCurrentPageUrl] = useState(UpdateUrlQueryParams(apiUrl, "limit", selectedPokeCountValue));
+    const [pokeSearchText, setPokeSearchText] = useState("");
     const [nextPageUrl, setNextPageUrl] = useState();
     const [prevPageUrl, setPrevPageUrl] = useState();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
-            console.log(currentPageUrl)
-            
             let response = await GetAllPokemon(currentPageUrl);
             setNextPageUrl(response.next);
             setPrevPageUrl(response.previous);
@@ -28,6 +27,25 @@ const Pokedex = () => {
         }
         fetchData();
     }, [currentPageUrl]);
+
+
+    useEffect(() => {
+        pokeData.forEach(pokemon => {
+            let foundPokemon = [];
+            if (pokemon.name === pokeSearchText) {
+                foundPokemon.push(pokemon);
+                setPokeData(() => {
+                    return foundPokemon;
+                });
+                return;
+            }
+            if (pokemon.abilities.includes(pokeSearchText)) {
+                foundPokemon.push(pokemon);
+                setPokeData(foundPokemon);
+                return;
+            }
+        });
+    }, [pokeSearchText]);
 
     const gotoNextPage = () => {
         const nextUrl = UpdateUrlQueryParams(nextPageUrl, "limit", selectedPokeCountValue);
@@ -50,13 +68,13 @@ const Pokedex = () => {
     }
 
     return (
-        <Layout>
+        <Layout pokeSearchText={pokeSearchText} setPokeSearchText={setPokeSearchText}>
             {loading ? <Spinner color="text-yellow-300" size="6" /> : (
                 <>
-                    <Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />
-                    <PokeCountSelect selectedPokeCountValue={selectedPokeCountValue} handlePokeCountValueChange={handlePokeCountValueChange} />
+                    {pokeData.length > 1 && (<Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />)}
+                    {pokeData.length > 1 && (<PokeCountSelect selectedPokeCountValue={selectedPokeCountValue} handlePokeCountValueChange={handlePokeCountValueChange} />)}
                     <PokeList listItems={pokeData} />
-                    <Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />
+                    {pokeData.length > 1 && (<Pagination nextPageUrl={nextPageUrl ? gotoNextPage : null} prevPageUrl={prevPageUrl ? gotoPrevPage : null} />)}
                 </>
             )}
         </Layout>

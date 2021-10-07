@@ -1,10 +1,10 @@
 import React from "react";
 import { Header, Footer } from "../common";
 
-const Layout = ({ children }) => {
+const Layout = ({ pokeSearchText, setPokeSearchText, children }) => {
   return (
     <>
-      <Header />
+      <Header pokeSearchText={pokeSearchText} setPokeSearchText={setPokeSearchText} />
       <main>
         {children}
       </main>

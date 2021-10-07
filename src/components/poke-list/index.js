@@ -3,6 +3,15 @@ import React from "react";
 export default function PokeList({ listItems }) {
     return (
         <div className="bg-gray-100 min-h-screen pt-18 py-6 md:pt-20 md:py-12 px-10 ">
+            {
+                listItems.length === 0 && (<div>
+                    <h2 className="font-julius text-2xl font-bold my-4 mx-10">Not Found</h2>
+                    <p className="text-xl my-4 mx-10">The pokemon you've searched is not found in the current set that's requested.</p>
+                    <p className="text-xl my-4 mx-10">Please refresh the page and try searching for a different pokemon.</p>
+                    <br />
+                    <a className="text-xl my-4 mx-10 ring ring-yellow-300 bg-yellow-300 hover:bg-yellow-400 focus:bg-yellow-400 py-3 px-4 rounded-xl" href="/">Refresh Page</a>
+                </div>)
+            }
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-x-10 xl-grid-cols-5 gap-y-10 gap-x-6 ">
                 {
                     listItems && listItems.map((listItem, idx) => (
@@ -31,11 +40,11 @@ export default function PokeList({ listItems }) {
                                     <div className="my-auto">
                                         <div className="text-lg">Abilities</div>
                                         <ul className="flex flex-row">
-                                        {
-                                            listItem.abilities && listItem.abilities.map(ability => (
-                                                <li className="text-sm mr-3" key={ability}>{ability}</li>
-                                            ))
-                                        }
+                                            {
+                                                listItem.abilities && listItem.abilities.map(ability => (
+                                                    <li className="text-sm mr-3" key={ability}>{ability}</li>
+                                                ))
+                                            }
                                         </ul>
                                     </div>
                                 </div>
