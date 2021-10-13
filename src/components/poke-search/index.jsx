@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
+import PropTypes from "prop-types";
 import { debounce } from "debounce";
 
 const PokeSearch = ({ pokeSearchText, setPokeSearchText }) => {
@@ -22,7 +23,7 @@ const PokeSearch = ({ pokeSearchText, setPokeSearchText }) => {
 
     const debouncedSearchTextChange = useMemo(
         () => debounce(handleSearchTextChange, 250)
-    , []);
+        , []);
 
     return (
         <div className="text-center bg-gray-800 bg-opacity-70 rounded-3xl ring ring-yellow-300 mt-24 shadow-2xl">
@@ -33,5 +34,10 @@ const PokeSearch = ({ pokeSearchText, setPokeSearchText }) => {
         </div>
     )
 }
+
+PokeSearch.propTypes = {
+    pokeSearchText: PropTypes.string,
+    setPokeSearchText: PropTypes.func.isRequired
+};
 
 export default PokeSearch;

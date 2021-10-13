@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from "prop-types";
 
 const Spinner = ({color, size}) => {
     return (
@@ -12,5 +13,10 @@ const Spinner = ({color, size}) => {
         </div>
     )
 }
+
+Spinner.propTypes = {
+    color: PropTypes.string.isRequired,
+    size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+};
 
 export default Spinner;

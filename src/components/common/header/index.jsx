@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { PokeSearch } from "../../index";
 
 const Header = ({ pokeSearchText, setPokeSearchText }) => {
@@ -11,6 +13,11 @@ const Header = ({ pokeSearchText, setPokeSearchText }) => {
             </div>
         </header>
     );
+};
+
+Header.propTypes = {
+    pokeSearchText: PropTypes.string,
+    setPokeSearchText: PropTypes.func.isRequired
 };
 
 export default Header;

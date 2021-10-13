@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from "prop-types";
 
 const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +51,14 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
             </div>
         </>
     )
+}
+
+PokeCountSelect.propTypes = {
+    pokeSearchText: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    handlePokeCountValueChange: PropTypes.func.isRequired
 }
 
 export default PokeCountSelect;

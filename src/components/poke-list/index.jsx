@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default function PokeList({ listItems }) {
+const PokeList = ({ listItems }) => {
     return (
         <div className="bg-gray-100 min-h-screen pt-18 py-6 md:pt-20 md:py-12 px-10">
             {
@@ -56,3 +57,10 @@ export default function PokeList({ listItems }) {
         </div>
     );
 }
+
+
+PokeList.propTypes = {
+    listItems: PropTypes.array.isRequired
+};
+
+export default PokeList
