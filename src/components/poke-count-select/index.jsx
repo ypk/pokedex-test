@@ -24,7 +24,7 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
                     <button
                         onClick={handleDropdownOpen}
                         className={`rounded-xl inline-flex justify-center w-full rounded-md border p-4 md:p-2 hover:rounded-xl focus:rounded-xl bg-yellow-300 text-sm leading-5 font-medium focus:outline-none hover:bg-yellow-400 focus:bg-yellow-400 focus:border-yellow-400 transition ease-in-out`}>
-                        <span className="mx-1 text-md leading-6 font-bold">Dislaying&nbsp;{selectedPokeCountValue}&nbsp;Pokemons</span>
+                        <span className="mx-1 text-md leading-6 font-bold">Displaying&nbsp;{selectedPokeCountValue}&nbsp;Pokemons</span>
                         <svg className="fill-current w-4 h-6 ml-2 group-focus:text-blue-400 group-hover:text-blue-400" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <g>
@@ -36,10 +36,10 @@ const PokeCountSelect = ({ selectedPokeCountValue, handlePokeCountValueChange })
                     </button>
                     {isOpen && (
                         <div className="rounded-xl shadow-md relative pin-t pin-l bg-yellow-300">
-                            <ul className="list-reset">
+                            <ul className="list-reset" role="list">
                                 {
                                     AvailablePokeCountValues.map(value => (
-                                        <li key={value} className="hover:bg-yellow-400" data-attrib-key={value} onClick={handlePokeCountSelect}>
+                                        <li role="listitem" key={value} className="hover:bg-yellow-400" data-attrib-key={value} onClick={handlePokeCountSelect}>
                                             <p className="p-2 block text-black cursor-pointer">{value}</p>
                                         </li>
                                     ))

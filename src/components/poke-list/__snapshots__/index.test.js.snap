@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <PokeList /> renders without items should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="bg-gray-100 min-h-screen pt-18 py-6 md:pt-20 md:py-12 px-10"
+  >
+    <h2
+      class="font-julius text-2xl font-bold my-4 mx-10"
+    >
+      Not Found
+    </h2>
+    <p
+      class="text-xl my-4 mx-10"
+    >
+      The pokemon you've searched is not found in the current set that's requested.
+    </p>
+    <p
+      class="text-xl my-4 mx-10"
+    >
+      Please refresh the page and try searching for a different pokemon.
+    </p>
+    <br />
+    <a
+      class="text-xl my-4 mx-10 ring ring-yellow-300 bg-yellow-300 hover:bg-yellow-400 focus:bg-yellow-400 py-3 px-4 rounded-xl"
+      href="/"
+    >
+      Refresh Page
+    </a>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-x-10 xl-grid-cols-5 gap-y-10 gap-x-6 "
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Footer /> renders without items should match snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    class="text-gray-600 body-font bg-gray-700"
+    data-testid="footer"
+  >
+    <div
+      class="bg-gray-900"
+    >
+      <div
+        class="container mx-auto py-4 px-5 flex flex-wrap flex-row text-white text-sm text-center"
+      >
+        <p
+          class="sm:text-left"
+        >
+          © 2021,
+        </p>
+         
+        <a
+          class="text-gray-300"
+          href="https://github.com/ypk"
+        >
+          ypk
+        </a>
+        . 
+        <p>
+          Everything is open-sourced.
+        </p>
+      </div>
+    </div>
+  </footer>
+</DocumentFragment>
+`;
