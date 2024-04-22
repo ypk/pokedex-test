@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Maersk - Frontend Engineering Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Pokémon application
 
-## Available Scripts
+## Instructions
 
-In the project directory, you can run:
+_-_ Use any frontend technology of your choice, and feel free to use TypeScript if you’re comfortable with it!
+_-_ Must be accompanied by unit tests (any testing library of your choice)
+_-_ Should commit code to a public git repository (GitHub) under a public handle. Alternatively, you can send over
+    a zip file (with .git folder included for history tracking).
+_-_ Use generic package names; **don’t reference Maersk** or **any other Maersk brand**
+_-_ Commits should be incremental so that one can look at the commit log and make sense of how the code has
+    progressed along with the test cases.
+_-_ Explain clearly on how to run the frontend in the submission in README.md file at the root of your project
+_-_ Don’t spend more than 3 - 4 hours on this assignment
+_-_ If you are not able to finish all the tasks - clearly mention the same in README.md. Submitted code should be
+    functional to the extent of completion.
 
-### `yarn start`
+## Purpose
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The purpose of this assignment is to assess the ability of developer to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+_-_ Develop frontend using a popular modern frontend framework (Vue, React etc.)
+_-_ Write relevant unit test cases for the UI
+_-_ Follow clean code practices
+_-_ Make UI responsive to cater to standard mobile, tablet and desktop viewports
+_-_ UX and design will be taken into consideration - clean design, ease of use, accessibility and so on.
 
-### `yarn test`
+```
+Bonus points (good to have)
+```
+_-_ Keyboard navigation
+_-_ Performance optimized code
+_-_ Linter configurations and pre-commit / pre-push hooks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Scope
 
-### `yarn build`
+_-_ Create a web application to list all Pokémon and show paginated results
+_-_ User should be shown the Pokémons in a **card-based layout** (click to see best practices)
+_-_ Each card should contain the image of the Pokémon
+    _o_ Name
+    _o_ Height
+    _o_ Weight
+    _o_ List of abilities.
+_-_ User should have option to choose the number of cards available per page available
+    options are **10, 20** and **50**
+_-_ User should be shown **previous** and **next** links - on both the top
+    and the bottom of the page
+_-_ User should be able to search through the Pokémon list **using the name and abilities**
+_-_ User should be able to **sort the result by name, height and weight.**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_-_ Page refresh should maintain the sorting and search related data.
+_-_ User should be taken to the details page and present all the information available for
+    that Pokémon. The user should have a link to go back to the previous page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**REST API** documentation to be followed: **PokeAPI v**
 
-### `yarn eject`
+You are free to use the **GraphQL** version of the API - if that is what you prefer!
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+PokeAPI - GraphQL v1 beta
+```
+## Example service invocation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_-_ Fetch list of first 20 Pokémons - **https://pokeapi.co/api/v2/pokemon?limit=20&offset=**
+_-_ Each object in the response list has the URL which contains the details of the Pokémon which has to be invoked
+    to fetch the details of the Pokémon.
+_-_ Image of each Pokémon will be the following key in the details API:
+    **sprites** > **other** > **official-artwork**
